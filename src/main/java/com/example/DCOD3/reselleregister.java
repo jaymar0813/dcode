@@ -88,7 +88,7 @@ public class reselleregister extends AppCompatActivity{
                 sellers.setPass(pass.getText().toString().trim());
                 
             
-                Query checkD = myRef.orderByChild("user").equalTo(sellers.Maill); //checkmail query, yung sellers.Maill pakicheck kung eto yung naglalaman ng value pare
+                Query checkD = ref.orderByChild("user").equalTo(sellers.maill); //checkmail query, yung sellers.Maill pakicheck kung eto yung naglalaman ng value pare
                 checkD.addListenerForSingleValueEvent(new ValueEventListener() {
                      @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
