@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.Query;
 
 public class reselleregister extends AppCompatActivity{
 
@@ -85,13 +86,28 @@ public class reselleregister extends AppCompatActivity{
                 sellers.setMaill(maill.getText().toString().trim());
                 sellers.setUser(user.getText().toString().trim());
                 sellers.setPass(pass.getText().toString().trim());
+                
+            
+                Query checkD = myRef.orderByChild("user").equalTo(sellers.Maill); //checkmail query, yung sellers.Maill pakicheck kung eto yung naglalaman ng value pare
+                checkD.addListenerForSingleValueEvent(new ValueEventListener() {
+                     @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                         if(snapshot.exists()){
+                             Toast.makeText(resellerlogin.this, "This Email already exist", Toast.LENGTH_LONG).show();// kung ito ay kailangan ng staryActivity palagyan na lang para magredirect ulit sa register activity
+                         }
+                        else{
+                         ref.child(String.valueOf(maxid+1)).setValue(sellers);
 
-                ref.child(String.valueOf(maxid+1)).setValue(sellers);
+                        Toast.makeText(reselleregister.this,"Save data!",Toast.LENGTH_LONG).show();
 
-                Toast.makeText(reselleregister.this,"Save data!",Toast.LENGTH_LONG).show();
+                        openLogin();
 
-               openLogin();
+                        }
+                    
+                    }//onDataChange end curly brace   
+                }//addListner end curly brace
 
+               
 
             }
         });
