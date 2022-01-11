@@ -91,7 +91,7 @@ public class reselleregister extends AppCompatActivity{
                 Query checkD = ref.orderByChild("user").equalTo(sellers.maill); //checkmail query, yung sellers.Maill pakicheck kung eto yung naglalaman ng value pare
                 checkD.addListenerForSingleValueEvent(new ValueEventListener() {
                      @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    public void onDataChange1(@NonNull DataSnapshot snapshot) {
                          if(snapshot.exists()){
                              Toast.makeText(resellerlogin.this, "This Email already exist", Toast.LENGTH_LONG).show();// kung ito ay kailangan ng staryActivity palagyan na lang para magredirect ulit sa register activity
                          }
