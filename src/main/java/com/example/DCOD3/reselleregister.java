@@ -105,7 +105,7 @@ public class reselleregister extends AppCompatActivity{
                         }
                     
                     }//onDataChange end curly brace   
-                }//addListner end curly brace
+                });//addListner end curly brace
 
                
 
