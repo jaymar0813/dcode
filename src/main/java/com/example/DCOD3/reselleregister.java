@@ -93,7 +93,7 @@ public class reselleregister extends AppCompatActivity{
                      @Override
                     public void onDataChange1(@NonNull DataSnapshot snapshot) {
                          if(snapshot.exists()){
-                             Toast.makeText(resellerlogin.this, "This Email already exist", Toast.LENGTH_LONG).show();// kung ito ay kailangan ng staryActivity palagyan na lang para magredirect ulit sa register activity
+                             Toast.makeText(resellerregister.this, "This Email already exist", Toast.LENGTH_LONG).show();// kung ito ay kailangan ng staryActivity palagyan na lang para magredirect ulit sa register activity
                          }
                         else{
                          ref.child(String.valueOf(maxid+1)).setValue(sellers);
